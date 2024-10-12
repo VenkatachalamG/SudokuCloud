@@ -29,3 +29,9 @@
 # Getting Started
 
 📝The project is structured as a Maven project, and the Sudoku solver logic is implemented in Java. To deploy and run the application, AWS Lambda is used, and the board input is managed via JSON requests.
+
+# Links:
+
+🔗Links to Snapshots of Project ➜ <a href="Snapshots">Click here</a> 
+
+🔗Link to complete Project Documentation ➜ <a href="Documentation.md">Click here</a>
