@@ -70,16 +70,22 @@ public class SudokuSolver {
         return false;
     }
 
-        public static String display(int[][] board) {
-            StringBuilder sb = new StringBuilder();
-            for (int[] row : board) {
-                for (int num : row) {
-                    sb.append(num).append(" ");
+    public static String display(int[][] board) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                sb.append(board[i][j] == 0 ? "." : board[i][j]).append(" ");
+                if ((j + 1) % 3 == 0 && j < 8) {
+                    sb.append("| ");
                 }
-                sb.append("\n");
             }
-            return sb.toString();
+            sb.append("\n");
+            if ((i + 1) % 3 == 0 && i < 8) {
+                sb.append("---------------------\n");
+            }
         }
+        return sb.toString();
+    }
 
 
     static boolean isSafe(int[][] board, int row, int col, int num) {

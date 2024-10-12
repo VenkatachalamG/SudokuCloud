@@ -7,7 +7,8 @@ public class LambdaHandler implements RequestHandler<SudokuInput, String> {
 
     @Override
     public String handleRequest(SudokuInput input, Context context) {
-        context.getLogger().log("Input received: " + input);
+        context.getLogger().log("Input received: " + input + "\n");
+        System.out.println();
         if (input == null || input.getBoard() == null) {
             return "{\"error\": \"Invalid input: Sudoku board is required.\"}";
         }
@@ -19,7 +20,9 @@ public class LambdaHandler implements RequestHandler<SudokuInput, String> {
 
         // Attempt to solve the board
         if (SudokuSolver.solve(board)) {
-            return "{\"result\": \"" + SudokuSolver.display(board) + "\"}";
+            String result = SudokuSolver.display(board);
+            System.out.println("\n"+result); // Print to terminal
+            return result;
         } else {
             return "{\"error\": \"Cannot solve.\"}";
         }
